@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Message from '../Message';
 
 
@@ -21,8 +21,8 @@ class Chat extends React.Component {
                 messages: newArr,
                 messageInput: '',
             })
-            console.log(this.state);
-            setTimeout(() => {console.log(this.state)}, 3000)
+            // console.log(this.state);
+
         }
     }
     
@@ -30,7 +30,10 @@ class Chat extends React.Component {
         return (
             <div className="chat">
                 <input type="text" className="input-message" onChange={this.changeInputMessage} value={this.state.messageInput} onKeyPress={this.sendMessageOnEnter}/>
-                <Message/>
+                <ul>
+                    <Message initialState={this.state} />
+                </ul>
+                
             </div>
         )    
     }
