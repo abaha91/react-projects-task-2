@@ -3,10 +3,13 @@ import Message from '../Message';
 
 
 class Chat extends React.Component {
-    state = {
-        messages: [],
-        messageInput: '',
+    componentWillMount() {
+        this.setState({
+            messages: [],
+            messageInput: '',
+        })
     }
+
 
     changeInputMessage = event => {
         this.setState({messageInput: event.target.value})
@@ -14,26 +17,24 @@ class Chat extends React.Component {
     
 
     sendMessageOnEnter = event => {
-        if (event.key === 'Enter') {
-            let newArr = this.state.messages;
-            newArr.push({text: event.target.value});
-            this.setState({
-                messages: newArr,
-                messageInput: '',
-            })
-            // console.log(this.state);
-
+        if (event.key !== 'Enter') {
+            return;
         }
+        if(!this.state.messageInput.length) {
+            return;
+        }
+        this.setState({
+            messages: [...this.state.messages, {text: event.target.value}],
+            messageInput: '',
+        })
+        // console.log(this.state);
     }
     
     render () {
         return (
             <div className="chat">
                 <input type="text" className="input-message" onChange={this.changeInputMessage} value={this.state.messageInput} onKeyPress={this.sendMessageOnEnter}/>
-                <ul>
-                    <Message initialState={this.state} />
-                </ul>
-                
+                <Message initialState={this.state} />    
             </div>
         )    
     }
