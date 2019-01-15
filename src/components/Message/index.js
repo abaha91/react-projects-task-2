@@ -9,13 +9,7 @@ class Message extends React.Component {
 
 
     render () {
-        const listItems = this.props.initialState.messages.map((el) => 
-            <li key={Math.random(999)}>{el.text}</li>
-        );
-    
-        return (
-            <ul>{listItems}</ul>
-        );
+        return <li key={Math.random(999)}>{this.props.text}</li>;
     }
 }
 

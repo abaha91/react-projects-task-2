@@ -34,7 +34,11 @@ class Chat extends React.Component {
         return (
             <div className="chat">
                 <input type="text" className="input-message" onChange={this.changeInputMessage} value={this.state.messageInput} onKeyPress={this.sendMessageOnEnter}/>
-                <Message initialState={this.state} />    
+                <ul>
+                {this.state.messages.map((el) => 
+                    <Message text={el.text} />
+                )}
+                </ul> 
             </div>
         )    
     }
