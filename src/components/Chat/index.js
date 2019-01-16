@@ -27,7 +27,6 @@ class Chat extends React.Component {
             messages: [...this.state.messages, {text: event.target.value}],
             messageInput: '',
         })
-        // console.log(this.state);
     }
     
     render () {

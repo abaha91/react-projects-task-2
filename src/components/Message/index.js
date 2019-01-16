@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { randomBytes } from 'crypto';
 
 class Message extends React.Component {
     constructor(props) {
@@ -9,7 +8,7 @@ class Message extends React.Component {
 
 
     render () {
-        return <li key={Math.random(999)}>{this.props.text}</li>;
+        return <li>{this.props.text}</li>;
     }
 }
 
