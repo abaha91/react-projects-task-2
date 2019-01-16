@@ -36,7 +36,7 @@ class Chat extends React.Component {
                 <input type="text" className="input-message" onChange={this.changeInputMessage} value={this.state.messageInput} onKeyPress={this.sendMessageOnEnter}/>
                 <ul>
                 {this.state.messages.map((el) => 
-                    <Message text={el.text} />
+                    <Message key={Math.random(999)} text={el.text} />
                 )}
                 </ul> 
             </div>
